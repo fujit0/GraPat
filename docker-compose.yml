@@ -1,0 +1,26 @@
+version: "3.7"
+
+services:
+
+  db:
+    image: mysql:5.7
+    volumes:
+      - data:/var/lib/mysql
+    restart: always
+    environment:
+      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_DATABASE=grapat
+      - MYSQL_USER=grapat
+      - MYSQL_PASSWORD=
+  
+  app:
+    depends_on:
+      - db
+    image: tomcat:7
+    ports:
+      - 8080:8080
+    volumes:
+      - ./target/grapat.war:/usr/local/tomcat/webapps/grapat.war
+
+volumes:
+  data:

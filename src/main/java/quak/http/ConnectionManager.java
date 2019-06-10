@@ -13,7 +13,7 @@ public class ConnectionManager {
    {
       try
       {
-    	 String host = "localhost";
+    	 String host = "db";
     	 String port = "3306";
     	 String database = "grapat";
     	 String db = "jdbc:mysql://" + host + ":" + port + "/" + database;
@@ -22,7 +22,7 @@ public class ConnectionManager {
          
          try
          {            	
-            con = DriverManager.getConnection(db,"grapat_user_auth","supersecret");
+            con = DriverManager.getConnection(db,"grapat","");
          }
          
          catch (SQLException ex)
