@@ -8,19 +8,22 @@ services:
       - data:/var/lib/mysql
     restart: always
     environment:
-      - MYSQL_ROOT_PASSWORD=
+      - MYSQL_ROOT_PASSWORD=hallo123
       - MYSQL_DATABASE=grapat
       - MYSQL_USER=grapat
-      - MYSQL_PASSWORD=
+      - MYSQL_PASSWORD=hallo123
   
   app:
     depends_on:
       - db
-    image: tomcat:7
+    build: ./app
     ports:
-      - 8080:8080
+      - 80:8080
     volumes:
-      - ./target/grapat.war:/usr/local/tomcat/webapps/grapat.war
+      #- ./app/target/grapat.war:/usr/local/tomcat/webapps/grapat.war
+      - ./data:/usr/local/tomcat/webapps/grapat/data
 
 volumes:
   data:
+
+

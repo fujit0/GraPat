@@ -22,7 +22,7 @@ public class ConnectionManager {
          
          try
          {            	
-            con = DriverManager.getConnection(db,"grapat","");
+            con = DriverManager.getConnection(db,"grapat","hallo123");
          }
          
          catch (SQLException ex)
